@@ -43,6 +43,31 @@ logger = logging.getLogger(__name__)
 MIN_TO_SEC = 60
 
 
+def amazon_aws_cli(parser, xml_parent, data):
+    """yaml: amazon-aws-cli
+    Sets the credentials and default regions for AWS CLI.
+    Requires the Jenkins `Amazon AWS CLI Plugin <http://dev-at-cloud-docs.cloudbees.com/docs/dev-at-cloud-docs-1.1/amazon-aws-cli.html>`_.
+
+    :arg str credentials: Jenkins user credential ID
+    :arg str default-region: us-east-1
+
+    Example:
+
+    .. literalinclude::
+            /../../tests/wrappers/fixtures/amazon-aws-cli.yaml
+
+    """
+    aac = XML.SubElement(
+        xml_parent, 'com.cloudbees.plugins.aws.cli.AmazonAwsCliBuildWrapper')
+    aac.set('plugin', 'cloudbees-aws-cli')
+
+    credentials = data['credentials']
+    XML.SubElement(aac, 'credentialsId').text = credentials
+
+    default_region = data.get('default-region', 'us-east-1')
+    XML.SubElement(aac, 'defaultRegion').text = default_region
+
+
 def ci_skip(parser, xml_parent, data):
     """yaml: ci-skip
     Skip making a build for certain push.

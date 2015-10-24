@@ -1,0 +1,4 @@
+wrappers:
+  - amazon-aws-cli:
+      credentials: cafecafe-cafe-cafe-cafe-cafecafecafe
+      default-region: us-west-2

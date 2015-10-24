@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+  <buildWrappers>
+    <com.cloudbees.plugins.aws.cli.AmazonAwsCliBuildWrapper plugin="cloudbees-aws-cli">
+      <credentialsId>cafecafe-cafe-cafe-cafe-cafecafecafe</credentialsId>
+      <defaultRegion>us-west-2</defaultRegion>
+    </com.cloudbees.plugins.aws.cli.AmazonAwsCliBuildWrapper>
+  </buildWrappers>
+</project>
